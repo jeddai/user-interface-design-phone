@@ -1,0 +1,5 @@
+.col-xs-4(ng-repeat='link in menu.links')
+    a.thumbnail.text-center(ng-click='menu.go(link.state)')
+        i(ng-class='link.icon')
+        div
+            p(ng-bind='link.text')

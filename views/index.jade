@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    #background(ng-controller='HomeController as home')
+        #nav-bar
+            a.col-xs-4.no-highlight(ng-if='home.nav.goHome' ng-click='home.goHome()')
+                i.fa.fa-chevron-left
+                | Home
+            .col-xs-4(ng-if='!home.nav.goHome')
+            .col-xs-4 {{ home.getDate() | date:'HH:mm' }}
+
+        ui-view
+
