@@ -1,0 +1,22 @@
+.list-group(ng-if="!contacts.selected")
+    a.list-group-item(ng-repeat="c in contacts.data.contacts track by $index") {{ c.name }}
+        button.btn.btn-xs.btn-danger.pull-right(ng-click="contacts.data.contacts.splice($index, 1)")
+            i.fa.fa-minus
+        button.btn.btn-xs.btn-success.pull-right(ng-click="contacts.selected = c")
+            i.fa.fa-edit
+    a.list-group-item(ng-click="contacts.selected = { name: '', phone: '' }") New Contact &nbsp;
+        i.fa.fa-plus
+div(ng-if="!!contacts.selected")
+    .list-group
+        .list-group-item.text-center
+            a.col-xs-1(href="" ng-click="contacts.selected = null") Back
+            h3 {{ contacts.selected.name || 'none' }}
+    .form.col-sm-12
+        .form-group
+            label Name:
+            input.form-control(type="text" ng-model="contacts.selected.name")
+        .form-group
+            label Phone:
+            input.form-control(type="text" ng-model="contacts.selected.phone")
+        button.btn.btn-primary(ng-if="!contacts.selected.id" ng-click="contacts.add(contacts.selected)") Save &nbsp;
+            i.fa.fa-plus

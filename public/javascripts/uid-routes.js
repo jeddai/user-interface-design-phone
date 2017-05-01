@@ -30,7 +30,7 @@
       templateUrl: '/partials/calling',
       controller: 'CallingController',
       controllerAs: 'calling',
-      url: '/calling'
+      url: '/calling/:num'
     })
     .state({
       name: 'Contacts',

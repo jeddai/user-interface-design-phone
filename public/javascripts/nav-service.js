@@ -12,7 +12,7 @@
 
     $rootScope.$on('$stateChangeStart',
         function(event, toState, toParams, fromState, fromParams) {
-          service.goHome = toState.name !== 'Menu';
+          service.goHome = toState.name !== 'Menu' && toState.name !== 'Calling';
         }
     )
   }

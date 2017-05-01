@@ -1,0 +1,12 @@
+.list-group(ng-if="!messages.selected")
+    a.list-group-item(ng-click="messages.select(m)" ng-repeat="m in messages.data.messages") {{ messages.data.contacts[m.to].name }}
+div(ng-if="!!messages.selected")
+    .list-group
+        .list-group-item.text-center
+            a.col-xs-1(href="" ng-click="messages.selected = null") Back
+            h3 {{ messages.data.contacts[messages.selected.to].name }}
+        .list-group-item(ng-class="messages.who(m)" ng-repeat="m in messages.selected.messages") {{ m.content }}
+    .input-group
+        input.form-control(ng-model="messages.newMessage.content")
+        span.input-group-btn
+            button.btn.btn-primary(ng-click="messages.send(messages.newMessage)") Send

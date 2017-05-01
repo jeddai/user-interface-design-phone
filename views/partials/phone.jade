@@ -1,0 +1,17 @@
+p.text-center(style='height:50px; font-size: 40px') {{ phone.toCall }}
+.col-xs-4(ng-repeat='btn in phone.mainButtons')
+    a.no-highlight(ng-click='phone.addText(btn.text)')
+        span.fa-stack.fa-4x
+            i.fa.fa-circle.fa-stack-2x
+            strong.fa-stack-1x.fa-inverse {{ btn.label }}
+.col-xs-4
+.col-xs-4
+    a.no-highlight(ng-click='phone.call()')
+        span.fa-stack.fa-4x
+            i.fa.fa-circle.fa-stack-2x
+            i.fa.fa-stack-1x.fa-inverse.fa-phone
+.col-xs-4.text-center
+    a.no-highlight(ng-click='phone.erase()')
+        span.fa-stack.fa-4x
+            i.fa.fa-circle.fa-stack-2x
+            i.fa.fa-stack-1x.fa-inverse.fa-times

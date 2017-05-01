@@ -1,0 +1,13 @@
+div.inverse.text-center
+    h3 {{ calling.number }}
+    p calling...
+    .col-xs-4(ng-repeat='btn in calling.buttons')
+        a.no-highlight(ng-click='btn.method()' ng-class='btn.active ? "icon-active" : ""')
+            span.fa-stack.fa-4x
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-stack-1x(ng-class='btn.getIcon()')
+    div(style='height: 500px')
+    a.red.no-highlight(ui-sref='Phone')
+        span.fa-stack.fa-4x
+            i.fa.fa-circle.fa-stack-2x
+            i.fa.fa-stack-1x.fa-inverse.fa-volume-control-phone.fa-rotate-90
